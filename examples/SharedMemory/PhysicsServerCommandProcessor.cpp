@@ -2444,8 +2444,10 @@ struct ProgrammaticUrdfInterface : public URDFImporterInterface
 			jointMaxVelocity = 0;
 			jointFriction = 0;
 			jointDamping = 0;
-			jointLowerLimit = 1;
-			jointUpperLimit = -1;
+			// jointLowerLimit = 1;
+			// jointUpperLimit = -1;
+			jointLowerLimit = m_createBodyArgs.m_linkLowerLimits[urdfLinkIndex];
+			jointUpperLimit = m_createBodyArgs.m_linkUpperLimits[urdfLinkIndex];
 
 			parent2joint.setOrigin(btVector3(
 				m_createBodyArgs.m_linkPositions[urdfLinkIndex * 3 + 0],
